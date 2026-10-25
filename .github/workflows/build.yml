@@ -1,7 +1,13 @@
 name: build
 
+# Every push and pull request builds and tests all platforms; binaries are attached to the run as artifacts.
+# Pushing a version tag (e.g. `git tag v0.1.0 && git push origin v0.1.0`) also publishes a GitHub Release
+# with downloadable packages for Windows, Linux and macOS.
+
 on:
   push:
+    branches: ["**"]
+    tags: ["v*"]
   pull_request:
   workflow_dispatch:
 
@@ -13,16 +19,20 @@ jobs:
         include:
           - os: ubuntu-latest
             target: x86_64-unknown-linux-gnu
-            artifact: pp_forge
+            bin: pp_forge
+            package: pp_forge-linux-x86_64
           - os: windows-latest
             target: x86_64-pc-windows-msvc
-            artifact: pp_forge.exe
+            bin: pp_forge.exe
+            package: pp_forge-windows-x86_64
           - os: macos-latest
             target: aarch64-apple-darwin
-            artifact: pp_forge
-          - os: macos-13
+            bin: pp_forge
+            package: pp_forge-macos-apple-silicon
+          - os: macos-15-intel
             target: x86_64-apple-darwin
-            artifact: pp_forge
+            bin: pp_forge
+            package: pp_forge-macos-intel
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -37,7 +47,61 @@ jobs:
         run: cargo clippy --locked --target ${{ matrix.target }} -- -D warnings
       - name: Build release
         run: cargo build --locked --release --target ${{ matrix.target }}
+
+      # Package: binary + README + sample character. Windows gets a .zip, others a .tar.gz
+      # (tar keeps the executable permission).
+      - name: Package (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path "dist/${{ matrix.package }}" | Out-Null
+          Copy-Item "target/${{ matrix.target }}/release/${{ matrix.bin }}" "dist/${{ matrix.package }}/"
+          Copy-Item README.md "dist/${{ matrix.package }}/"
+          Copy-Item "examples_chars/Hard Case.ppchar" "dist/${{ matrix.package }}/"
+          Compress-Archive -Path "dist/${{ matrix.package }}/*" -DestinationPath "dist/${{ matrix.package }}.zip"
+      - name: Package (Linux/macOS)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          mkdir -p "dist/${{ matrix.package }}"
+          cp "target/${{ matrix.target }}/release/${{ matrix.bin }}" "dist/${{ matrix.package }}/"
+          cp README.md "examples_chars/Hard Case.ppchar" "dist/${{ matrix.package }}/"
+          tar -C dist -czf "dist/${{ matrix.package }}.tar.gz" "${{ matrix.package }}"
+
       - uses: actions/upload-artifact@v4
         with:
-          name: pp_forge-${{ matrix.target }}
-          path: target/${{ matrix.target }}/release/${{ matrix.artifact }}
+          name: ${{ matrix.package }}
+          path: |
+            dist/${{ matrix.package }}.zip
+            dist/${{ matrix.package }}.tar.gz
+          if-no-files-found: error
+
+  release:
+    # Only for version tags, and only once every platform built and passed its tests.
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: packages
+          merge-multiple: true
+      - name: List packages
+        run: ls -la packages
+      - uses: softprops/action-gh-release@v2
+        with:
+          name: PP Forge ${{ github.ref_name }}
+          files: packages/*
+          generate_release_notes: true
+          body: |
+            Download the package for your system, unzip it and run PP Forge.
+
+            - **Windows (10/11, 64-bit):** `pp_forge-windows-x86_64.zip` → run `pp_forge.exe`. Windows may show a SmartScreen warning because the app isn't code-signed: choose *More info → Run anyway*.
+            - **macOS (Apple Silicon M1/M2/M3/M4):** `pp_forge-macos-apple-silicon.tar.gz`
+            - **macOS (Intel):** `pp_forge-macos-intel.tar.gz`
+              On macOS the app is unsigned: right-click `pp_forge` → *Open* the first time.
+            - **Linux (x86_64):** `pp_forge-linux-x86_64.tar.gz` → run `./pp_forge`.
+
+            Each package includes the README and a sample character (`Hard Case.ppchar`).

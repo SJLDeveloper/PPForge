@@ -48,9 +48,26 @@ Platform notes:
 2. Add the Windows target: `rustup target add x86_64-pc-windows-gnu`
 3. Build: `cargo build --release --target x86_64-pc-windows-gnu`
 
-The result is `target/x86_64-pc-windows-gnu/release/pp_forge.exe`. It's a single file: copy it to any 64-bit Windows 10 or 11 PC and run it. `.cargo/config.toml` already points Cargo at the MinGW linker.
+The result is `target/x86_64-pc-windows-gnu/release/pp_forge.exe`. It's a single file: copy it to any 64-bit Windows 10 or 11 PC and run it.
 
-`.github/workflows/build.yml` builds, tests and lints on Linux, Windows, macOS (Apple Silicon) and macOS (Intel), and uploads each binary as an artifact.
+`.github/workflows/build.yml` builds, tests and lints on Linux, Windows, macOS (Apple Silicon) and macOS (Intel), and uploads each package as an artifact. See *Publishing a release* below.
+
+### Publishing a release
+
+Every push builds all four platforms. Each run's binaries are kept for 90 days on its Actions page, and you have to be signed in to GitHub to download them. To publish a permanent download page, push a version tag:
+
+```sh
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+Once every platform builds and passes its tests, the workflow creates a GitHub Release named "PP Forge v0.1.0" with:
+- `pp_forge-windows-x86_64.zip`
+- `pp_forge-linux-x86_64.tar.gz`
+- `pp_forge-macos-apple-silicon.tar.gz`
+- `pp_forge-macos-intel.tar.gz`
+
+Each package contains the app, this README and the sample character. Bump `version` in `Cargo.toml` and use a new tag for each release.
 
 ### Where files go
 

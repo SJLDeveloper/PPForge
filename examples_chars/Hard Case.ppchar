@@ -1,0 +1,260 @@
+{
+  "format_version": 1,
+  "ruleset": "Core",
+  "char_type": "Hero",
+  "power_level": "Low",
+  "role": "None",
+  "package": "Superhero",
+  "abilities": [
+    {
+      "rank": 6,
+      "source": "Innate",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 3,
+      "source": "Innate",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 8,
+      "source": "Super",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 6,
+      "source": "Innate",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 6,
+      "source": "Super",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 3,
+      "source": "Innate",
+      "mods": [],
+      "note": ""
+    }
+  ],
+  "talents": [
+    {
+      "rank": 3,
+      "source": "Trained",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 3,
+      "source": "Trained",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 6,
+      "source": "Trained",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 6,
+      "source": "Trained",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 10,
+      "source": "Trained",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 3,
+      "source": "Trained",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 3,
+      "source": "Trained",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 3,
+      "source": "Trained",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 6,
+      "source": "Trained",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 3,
+      "source": "Trained",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 3,
+      "source": "Trained",
+      "mods": [],
+      "note": ""
+    },
+    {
+      "rank": 3,
+      "source": "Trained",
+      "mods": [],
+      "note": ""
+    }
+  ],
+  "powers": [
+    {
+      "uid": 1,
+      "def": "Armor",
+      "descriptor": "",
+      "source": "Super",
+      "ranks": 5,
+      "option": 0,
+      "units": 1,
+      "threat": 4,
+      "base_trait": "",
+      "boost_cost": 1,
+      "mods": [],
+      "notes": "",
+      "cost_override": null,
+      "resolve_override": null,
+      "custom": null
+    },
+    {
+      "uid": 2,
+      "def": "Determination",
+      "descriptor": "",
+      "source": "NoSource",
+      "ranks": 0,
+      "option": 0,
+      "units": 1,
+      "threat": 4,
+      "base_trait": "",
+      "boost_cost": 1,
+      "mods": [],
+      "notes": "",
+      "cost_override": null,
+      "resolve_override": null,
+      "custom": null
+    },
+    {
+      "uid": 3,
+      "def": "Regeneration",
+      "descriptor": "",
+      "source": "Super",
+      "ranks": 0,
+      "option": 0,
+      "units": 1,
+      "threat": 4,
+      "base_trait": "",
+      "boost_cost": 1,
+      "mods": [],
+      "notes": "",
+      "cost_override": null,
+      "resolve_override": null,
+      "custom": null
+    }
+  ],
+  "perks": [
+    {
+      "def": "Contacts",
+      "note": "journalist, cop, politician, fence",
+      "option": 0,
+      "units": 4,
+      "cost_override": null
+    }
+  ],
+  "flaws": [
+    {
+      "def": "Compulsion/Severe Compulsion",
+      "note": "drinking",
+      "issue_resolve": null
+    },
+    {
+      "def": "Quirk",
+      "note": "obnoxious and sarcastic",
+      "issue_resolve": null
+    },
+    {
+      "def": "Relationship",
+      "note": "best friend since high school",
+      "issue_resolve": null
+    }
+  ],
+  "awards": [],
+  "story": {
+    "hero_name": "Hard Case",
+    "real_name": "Jessie Kane",
+    "player": "Darlene",
+    "concept": "Hard-drinking super-strong private eye",
+    "motivation": "Justice",
+    "costume": [
+      "Leather jacket",
+      "Scowl",
+      "Scuffed knuckles"
+    ],
+    "civilian": [
+      "Same leather jacket",
+      "Smells of whiskey",
+      "Tired eyes"
+    ],
+    "quote": "I don't do capes.",
+    "connections": [
+      {
+        "name": "Trish",
+        "description": "Best friend and radio host"
+      },
+      {
+        "name": "Det. Oscar Clemons",
+        "description": "Grudging police contact"
+      },
+      {
+        "name": "Malcolm",
+        "description": "Neighbor she keeps out of trouble"
+      }
+    ],
+    "details": [
+      "She was experimented on as a teen and doesn't remember all of it.",
+      "She owes another Hero a favor she can't repay.",
+      "The lab that changed her is still operating."
+    ],
+    "origin": "A car crash, a coma, and a corporate lab that wanted a weapon. She woke up strong and angry.",
+    "gear": "Phone, keys, wallet, flask",
+    "notes": ""
+  },
+  "options": {
+    "more_health": false,
+    "lethal_damage": false,
+    "edge_uses_willpower": false,
+    "starting_hp_override": null,
+    "cap_mode": "Hard",
+    "cap_bonus": 0,
+    "edge_override": null,
+    "health_override": null,
+    "resolve_override": null,
+    "creation_complete": true
+  },
+  "play": {
+    "current_health": null,
+    "current_resolve": null,
+    "defining_moments": 0,
+    "issues_played": 3,
+    "session_log": ""
+  },
+  "next_uid": 4
+}

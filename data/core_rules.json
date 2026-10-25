@@ -1,0 +1,4193 @@
+{
+  "ruleset": "core",
+  "powers": [
+    {
+      "name": "Adaptation",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 12
+      },
+      "affects_resolve": true,
+      "summary": "Your body automatically adjusts to any environment, letting you breathe, move, perceive and survive in hostile or alien surroundings.",
+      "mods": []
+    },
+    {
+      "name": "Alternate Form",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "per_power_level",
+        "value": 4
+      },
+      "affects_resolve": true,
+      "summary": "You can become a second form built as its own Hero at a power level up to yours (4 HP per level: Street 4 ... Iconic 24); every form pays the cost and they share the lowest Resolve.",
+      "mods": [
+        {
+          "name": "Independent Forms",
+          "type": "con",
+          "cost": {
+            "kind": "per_power_level",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "Each form has its own identity, memories and personality."
+        }
+      ]
+    },
+    {
+      "name": "Animal Control",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Roll against an animal's Willpower to make it obey you for the Power's duration.",
+      "mods": [
+        {
+          "name": "Calling",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Reach animals out to Extreme Range; they come to you and the duration starts when they arrive."
+        },
+        {
+          "name": "Only X",
+          "type": "con",
+          "cost": {
+            "kind": "choice",
+            "options": [
+              -2,
+              -4
+            ]
+          },
+          "repeatable": false,
+          "summary": "Limited to one category of animals; -4 if the group is very narrow or of little use."
+        }
+      ]
+    },
+    {
+      "name": "Animal Empathy",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Animals sense your kinship and rarely attack you without strong reason, and may be talked down.",
+      "mods": [
+        {
+          "name": "Speech",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "You can actually converse with animals."
+        }
+      ]
+    },
+    {
+      "name": "Animal Mimicry",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Gain a chosen animal's Powers and better physical Abilities, each capped at your Power rank; switching animals is a free action once per page.",
+      "mods": [
+        {
+          "name": "Enhanced",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 4
+          },
+          "repeatable": false,
+          "summary": "Replace the mimicked animal's single highest Trait with your Power rank."
+        },
+        {
+          "name": "Selection",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 4
+          },
+          "repeatable": false,
+          "summary": "Mimic several animals at once using the best Traits of each, at -1d effective rank per extra animal."
+        }
+      ]
+    },
+    {
+      "name": "Animation",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Bring images or objects to life for a scene; they get Agility, Might, Toughness and fitting Powers, one Trait at your rank and the rest at half. -1d per extra animated thing; Structure can't exceed your rank.",
+      "mods": []
+    },
+    {
+      "name": "Armor",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Toughness",
+        "half": true
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Passive defense against physical and energy attacks; you are immune to attacks whose rank is at most half your Armor rank (unless Penetrating).",
+      "mods": [
+        {
+          "name": "Activated",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "Must be switched on (free action) and shuts off if you are knocked out."
+        },
+        {
+          "name": "Reactive",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Works as an active defense, like a shield or bracers you block with."
+        }
+      ]
+    },
+    {
+      "name": "Astral Projection",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 12
+      },
+      "affects_resolve": true,
+      "summary": "Leave your body as an astral form with Invisibility, Phasing (Intangible), Super Senses (Astral Sight) and Flight at your Willpower rank, while your body lies dormant.",
+      "mods": []
+    },
+    {
+      "name": "Attuned",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": false,
+      "summary": "You sense significant disturbances, events or powerful beings within a natural force, region or the cosmos you are attuned to; spend 1 Resolve for more detail.",
+      "mods": []
+    },
+    {
+      "name": "Aura",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Your body deals one energy type to anyone touching or punching you (passive defenses only) and can be used for energy close attacks; mundane objects with lower Structure can't hurt you.",
+      "mods": [
+        {
+          "name": "Spines",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Quills or spines deal physical damage instead, and give no protection against physical attacks."
+        }
+      ]
+    },
+    {
+      "name": "Banish",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Roll against Willpower (or Toughness if chosen) or an active defense to send a target to another time, place or dimension until they are defeated.",
+      "mods": []
+    },
+    {
+      "name": "Blast",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "A damaging ranged attack of a damage type chosen at purchase.",
+      "mods": [
+        {
+          "name": "Block",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Use Blast as an active defense against ranged attacks (not area attacks); forgoing your next action starts a 3-exchange blast duel."
+        },
+        {
+          "name": "Melee",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Use Blast as an active defense against close combat attacks."
+        },
+        {
+          "name": "Subdual",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "Deals subdual damage."
+        },
+        {
+          "name": "Weapons",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "Represents skill with a chosen weapon group; attack with your Blast rank only while armed, using the weapon's damage."
+        }
+      ]
+    },
+    {
+      "name": "Blending",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": false,
+      "summary": "+3d to Covert rolls to stay unseen; while motionless you can attempt to hide in plain sight at half that rank.",
+      "mods": []
+    },
+    {
+      "name": "Blind",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_two_ranks"
+      },
+      "affects_resolve": true,
+      "summary": "Roll against Toughness or an active defense to blind a living target: -3d to its attacks and active defenses unless it can compensate.",
+      "mods": []
+    },
+    {
+      "name": "Blind Fighting",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "You suffer no penalties for darkness or unseen opponents in combat.",
+      "mods": []
+    },
+    {
+      "name": "Blink",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Flicker in and out of reality in combat: use Blink in place of Might for close attacks and Agility for active defense and movement rolls (or a higher such Trait +1d).",
+      "mods": []
+    },
+    {
+      "name": "Boost",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "special"
+      },
+      "cost": {
+        "kind": "special",
+        "note": "costs the same Hero Points per rank as the Trait it boosts; that Trait is its baseline"
+      },
+      "affects_resolve": true,
+      "summary": "Raises one chosen Ability, Talent or Power up to the Boost rank; must be given Cons describing when and how it works.",
+      "mods": [
+        {
+          "name": "Rage",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Activates when you are furious; Intellect and all Talents drop to 1d while it lasts, ending by scene's end."
+        }
+      ]
+    },
+    {
+      "name": "Buff",
+      "category": null,
+      "range": "Zone",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 12
+      },
+      "affects_resolve": true,
+      "summary": "Spend 1 Resolve and an action to give yourself and allies in the zone +1d on all challenge rolls for the scene; doesn't stack.",
+      "mods": [
+        {
+          "name": "Greater",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 6
+          },
+          "repeatable": false,
+          "summary": "Each extra Resolve spent adds +1d more, up to 3 Resolve for +3d. (Book prints the cost as '(6)' without a sign.)"
+        }
+      ]
+    },
+    {
+      "name": "Clairvoyance",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 9
+      },
+      "affects_resolve": false,
+      "summary": "See distant places (or a familiar person/object) at any range; shielding requires a Willpower roll and other dimensions need a Superhuman (6) Willpower roll.",
+      "mods": []
+    },
+    {
+      "name": "Cloud Minds",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Become undetectable to living minds within Distant Range unless they beat your rank with Willpower once you are close or noticeable; costs 1 action per page.",
+      "mods": []
+    },
+    {
+      "name": "Communications",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": false,
+      "summary": "Detect, receive, store and transmit communications over available networks worldwide without needing infrastructure.",
+      "mods": []
+    },
+    {
+      "name": "Constructs",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "Create solid force constructs with Structure and Might equal to your rank, usable to attack, grab or shield; -1d per extra construct.",
+      "mods": [
+        {
+          "name": "Devices",
+          "type": "pro",
+          "cost": {
+            "kind": "per_rank",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Build complex machines that mimic other Powers, like a broad Omni-Power."
+        }
+      ]
+    },
+    {
+      "name": "Danger Sense",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "Use this rank instead of Perception to sense danger and for Edge, and make active defenses even when surprised (at the lower rank).",
+      "mods": []
+    },
+    {
+      "name": "Darkness",
+      "category": null,
+      "range": "Zone",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "affects_resolve": true,
+      "summary": "Fill the zone with darkness, fog, smoke or similar; those who can't see through it take -3d to attacks and active defenses.",
+      "mods": []
+    },
+    {
+      "name": "Dazzle",
+      "category": null,
+      "range": "Zone",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Roll against Willpower or an active defense for everyone in the zone: stunned for one page, then blinded for the rest of the duration; can't be stacked.",
+      "mods": [
+        {
+          "name": "Deafen",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "After the stun, targets are deafened (-1d to all rolls) instead of blinded."
+        }
+      ]
+    },
+    {
+      "name": "Deflection",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "choice",
+        "options": [
+          {
+            "label": "Physical or energy",
+            "value": 1
+          },
+          {
+            "label": "Both physical and energy",
+            "value": 2
+          }
+        ],
+        "per_rank": true
+      },
+      "affects_resolve": true,
+      "summary": "Active defense against one chosen type of ranged attack (not area); a failed attack can be redirected as a free action, -2d cumulative per extra redirect per page.",
+      "mods": [
+        {
+          "name": "Only X",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -4
+          },
+          "repeatable": false,
+          "summary": "Deflects just one specific object or energy type."
+        }
+      ]
+    },
+    {
+      "name": "Density",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Grow denser: substitute Density for Might and Toughness and gain Armor at that rank (or existing Trait +1d); weight rank equals Density from 3d up.",
+      "mods": []
+    },
+    {
+      "name": "Detection",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_two_ranks"
+      },
+      "affects_resolve": false,
+      "summary": "Sense and locate a chosen kind of thing out to Extreme Range, rolling only for faint or hidden traces.",
+      "mods": [
+        {
+          "name": "Long Range",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 1
+          },
+          "repeatable": false,
+          "summary": "Works at interplanetary distances, up to Plot Device Range."
+        }
+      ]
+    },
+    {
+      "name": "Determination",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "special"
+      },
+      "cost": {
+        "kind": "per_unit",
+        "value": 5,
+        "unit": "Resolve"
+      },
+      "affects_resolve": false,
+      "summary": "Start each issue with +1 Resolve per 5 Hero Points spent; has no rank, can't be affected by other Powers, Heroes only.",
+      "mods": []
+    },
+    {
+      "name": "Dimensional Travel",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "affects_resolve": false,
+      "summary": "Spend an action to travel to other dimensions; free uses per issue equal Willpower, then 1 Resolve each.",
+      "mods": [
+        {
+          "name": "Portal",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Open portals others can pass through."
+        }
+      ]
+    },
+    {
+      "name": "Dispel",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_two_ranks"
+      },
+      "affects_resolve": true,
+      "summary": "Roll against an ongoing Power's rank to end its effect on a being or object; one Source only; also an active defense against special-effect Powers from that Source.",
+      "mods": [
+        {
+          "name": "Also X",
+          "type": "pro",
+          "cost": {
+            "kind": "per_two_ranks",
+            "value": 1
+          },
+          "repeatable": true,
+          "summary": "Each additional Source adds +1 Hero Point per 2 ranks."
+        }
+      ]
+    },
+    {
+      "name": "Drain",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_two_ranks"
+      },
+      "affects_resolve": true,
+      "summary": "Roll against the target's highest Trait of one Source; drained Abilities/Talents drop to 1d and Powers stop for the duration.",
+      "mods": [
+        {
+          "name": "Also X",
+          "type": "pro",
+          "cost": {
+            "kind": "per_two_ranks",
+            "value": 1
+          },
+          "repeatable": true,
+          "summary": "Each additional Source adds +1 Hero Point per 2 ranks."
+        },
+        {
+          "name": "Only X",
+          "type": "con",
+          "cost": {
+            "kind": "choice",
+            "options": [
+              -2,
+              -4
+            ]
+          },
+          "repeatable": false,
+          "summary": "-2 to affect only Abilities, Talents or Powers; -4 to affect only one specific Trait."
+        }
+      ]
+    },
+    {
+      "name": "Duplication",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 25
+      },
+      "affects_resolve": true,
+      "summary": "Spend an action to create a copy of yourself without this Power and without its own Resolve; can be bought again for more duplicates.",
+      "mods": []
+    },
+    {
+      "name": "Elemental Control",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "Create and control one element to mimic other Powers at this rank, like Constructs and/or a narrow Omni-Power.",
+      "mods": [
+        {
+          "name": "Matter Creation",
+          "type": "pro",
+          "cost": {
+            "kind": "per_rank",
+            "value": 1
+          },
+          "repeatable": false,
+          "summary": "Spend Resolve equal to the weight rank (min 1) to make created matter permanent."
+        },
+        {
+          "name": "Only Control",
+          "type": "con",
+          "cost": {
+            "kind": "per_rank",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "Can only manipulate existing element within range, not create it."
+        }
+      ]
+    },
+    {
+      "name": "Emotion Control",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Roll against Willpower to impose a strong emotion or mental state on a target.",
+      "mods": [
+        {
+          "name": "Only X",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Only one specific emotion or state."
+        },
+        {
+          "name": "Pheromones",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Chemical: resisted by the better of Toughness or Willpower; non-breathers, life support and toxin immunity block it."
+        }
+      ]
+    },
+    {
+      "name": "Energy Absorption",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "choice",
+        "options": [
+          {
+            "label": "One energy type",
+            "value": 1
+          },
+          {
+            "label": "Kinetic (GM approval)",
+            "value": 3
+          }
+        ],
+        "per_rank": true
+      },
+      "affects_resolve": true,
+      "summary": "Absorb one energy type: immune to it up to your rank, passive defense above that; spend absorbed ranks at once to boost an Ability, gain +1d, Blast, or heal.",
+      "mods": [
+        {
+          "name": "Also X",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": true,
+          "summary": "Absorb one more non-kinetic energy type per purchase."
+        }
+      ]
+    },
+    {
+      "name": "Ensnare",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Roll against Might or an active defense to bind a target so it can't take physical actions; Aura counts as a passive defense.",
+      "mods": [
+        {
+          "name": "Line",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "A tether lets you reel in a snared target whose weight rank doesn't exceed your rank."
+        },
+        {
+          "name": "Immobilize",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Target is stuck in place but can still act physically."
+        }
+      ]
+    },
+    {
+      "name": "Evasion",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Agility"
+      },
+      "cost": {
+        "kind": "per_two_ranks"
+      },
+      "affects_resolve": true,
+      "summary": "Use Evasion instead of Agility for active defense, movement rolls and combat stunts (not a Travel Power).",
+      "mods": []
+    },
+    {
+      "name": "Expertise",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "special"
+      },
+      "cost": {
+        "kind": "per_two_ranks"
+      },
+      "affects_resolve": false,
+      "summary": "A specialty under one Ability or Talent; use this rank instead of that Trait when it applies (baseline equals that Trait). Non-combat Expertise doesn't affect Resolve.",
+      "mods": []
+    },
+    {
+      "name": "Extra Limbs",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "Extra arms, tail, tentacles or similar give +2d when grappling and possibly other tasks.",
+      "mods": []
+    },
+    {
+      "name": "Flight",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "Travel Power for flying; effective rank is halved indoors unless the space is very large.",
+      "mods": [
+        {
+          "name": "Spaceflight",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Faster-than-light travel in space."
+        },
+        {
+          "name": "Gliding",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Must descend at least a story per page unless riding an updraft."
+        },
+        {
+          "name": "Levitation",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -4
+          },
+          "repeatable": false,
+          "summary": "Only straight up/down movement or hovering."
+        },
+        {
+          "name": "Slides",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Ride self-made slides; must stay within Distant Range of ground or large solid objects."
+        },
+        {
+          "name": "Wings",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Needs room and air; no flying in cramped spaces, thin atmosphere or vacuum."
+        }
+      ]
+    },
+    {
+      "name": "Force Field",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Shaped field giving protected characters your rank as a passive defense vs physical and energy attacks, immune at half rank or less; not mental. Activate with an action, maintain free; -1d per extra field.",
+      "mods": [
+        {
+          "name": "Inviolate",
+          "type": "pro",
+          "cost": {
+            "kind": "per_rank",
+            "value": 1
+          },
+          "repeatable": false,
+          "summary": "Spend 1 Resolve when raising it to block all Power effects of equal or lower rank, including mental ones."
+        },
+        {
+          "name": "Permeable",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 6
+          },
+          "repeatable": false,
+          "summary": "Attacks can pass out through the field in one direction."
+        },
+        {
+          "name": "Collapsible",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Collapses when hit by an attack above your rank and must be re-raised."
+        },
+        {
+          "name": "Ward",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "Blocks mental attacks and effects instead of physical ones; can hold Intangible Phasers."
+        }
+      ]
+    },
+    {
+      "name": "Energy Form",
+      "category": "Form",
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "Become one type of energy: gain Aura and Flight at this rank, weightless and immune to physical and energy attacks, but can't touch things and are vulnerable to effects on that energy.",
+      "mods": [
+        {
+          "name": "Also X",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": true,
+          "summary": "One more energy type per purchase."
+        }
+      ]
+    },
+    {
+      "name": "Gaseous Form",
+      "category": "Form",
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "affects_resolve": true,
+      "summary": "Become a gas with 1d Flight, immune to physical and energy attacks and able to pass through gaps, but unable to affect the physical world.",
+      "mods": []
+    },
+    {
+      "name": "Liquid Form",
+      "category": "Form",
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 12
+      },
+      "affects_resolve": true,
+      "summary": "Become liquid or fine particles: immune to physical (not energy) attacks and able to flow through openings while still able to act physically.",
+      "mods": []
+    },
+    {
+      "name": "Solid Form",
+      "category": "Form",
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Become solid matter, substituting this rank for Might and Toughness and gaining Armor at it (or existing Trait +1d).",
+      "mods": []
+    },
+    {
+      "name": "Gestalt",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "per_unit",
+        "value": 3,
+        "unit": "alter ego"
+      },
+      "affects_resolve": true,
+      "summary": "Requires the Alter Ego Flaw; your powered form is the merger of two separate alter egos, with each additional alter ego costing 3 more.",
+      "mods": []
+    },
+    {
+      "name": "Growth",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Grow larger: substitute Growth for Might and Toughness, gain Armor at it and Running at half (or Trait +1d); weight rank equals Growth from 4d up.",
+      "mods": []
+    },
+    {
+      "name": "Hard to Kill",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Only extreme measures can kill you. In games where Heroes can die, the GM may charge 3 to 6 Hero Points instead.",
+      "mods": []
+    },
+    {
+      "name": "Healing",
+      "category": null,
+      "range": "Touch",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Heal touched characters, up to your rank in damage per day; may cure disease at GM discretion.",
+      "mods": [
+        {
+          "name": "Repair",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Fixes machines, robots, vehicles and technology instead of living beings."
+        }
+      ]
+    },
+    {
+      "name": "Hibernation",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "Enter aware suspended animation indefinitely without needing air, food or water.",
+      "mods": []
+    },
+    {
+      "name": "Hyper Breath",
+      "category": null,
+      "range": "Special",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Roll against Might or weight rank to push or pull targets (all in Close Range or one at Distant); 3+ net successes knock prone and cost a turn.",
+      "mods": [
+        {
+          "name": "Freezing",
+          "type": "pro",
+          "cost": {
+            "kind": "per_rank",
+            "value": 1
+          },
+          "repeatable": false,
+          "summary": "Freezing breath mimics Blast (cold) or Ensnare within Close Range."
+        }
+      ]
+    },
+    {
+      "name": "Illusions",
+      "category": null,
+      "range": "Zone",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Create real sights and sounds that fool people and devices; doubters roll Perception against your rank, and touching reveals them.",
+      "mods": [
+        {
+          "name": "Mental",
+          "type": "pro",
+          "cost": {
+            "kind": "per_rank",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Illusions exist only in minds (resisted by Willpower) and can impose Stun-like effects on single targets."
+        }
+      ]
+    },
+    {
+      "name": "Immortality",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "You don't stay dead and don't die of old age. In lethal games the GM may charge 6 to 12 Hero Points.",
+      "mods": [
+        {
+          "name": "Vulnerable",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "You can be permanently killed in some specific, difficult way."
+        }
+      ]
+    },
+    {
+      "name": "Immunity",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "per_unit",
+        "value": 3,
+        "unit": "immunity"
+      },
+      "affects_resolve": true,
+      "summary": "Immune to chosen hazards, each bought separately: Attack X, Energy X, Environmental, Fatigue, Life Support, Mental States, Sensory, Toxins, or custom.",
+      "mods": []
+    },
+    {
+      "name": "Inanimate",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "special"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 9
+      },
+      "affects_resolve": true,
+      "summary": "Not truly alive: immune to physical attacks and Powers that only affect the living, with effective Immunity (Life Support, Toxins); still vulnerable to mental effects. Has a non-Trained Source and no rank.",
+      "mods": [
+        {
+          "name": "Mindless",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 9
+          },
+          "repeatable": false,
+          "summary": "Also immune to mental attacks and Powers."
+        }
+      ]
+    },
+    {
+      "name": "Invisibility",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 9
+      },
+      "affects_resolve": true,
+      "summary": "Become invisible; foes take -3d to attacks and active defenses against you, or -2d if they detect you by other means.",
+      "mods": [
+        {
+          "name": "Cloaking",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 3
+          },
+          "repeatable": false,
+          "summary": "Also hidden from Radar, visual Super Senses and equivalent sensors."
+        },
+        {
+          "name": "Jamming",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -3
+          },
+          "repeatable": false,
+          "summary": "Not invisible, but undetectable to Radar, visual Super Senses and equivalent sensors."
+        }
+      ]
+    },
+    {
+      "name": "Irritant",
+      "category": null,
+      "range": "Zone",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Fill the zone with a hindering effect; others take -2d on non-passive-defense rolls unless Toughness (or Willpower, if chosen) exceeds your rank.",
+      "mods": []
+    },
+    {
+      "name": "Languages",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "Speak extra languages equal to your Intellect, chosen in advance or during play.",
+      "mods": [
+        {
+          "name": "Hyper Translation",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Instantly fluent in any language you can perceive and pronounce."
+        },
+        {
+          "name": "Polyglot",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 1
+          },
+          "repeatable": false,
+          "summary": "Learn new languages in about a week, basics in a day or two."
+        }
+      ]
+    },
+    {
+      "name": "Leadership",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "affects_resolve": true,
+      "summary": "As a free action, let each ally you can see and talk to reroll one challenge roll per combat scene.",
+      "mods": []
+    },
+    {
+      "name": "Leaping",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Might",
+        "half": true
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "Travel Power for huge jumps (vertical reach is rank -1d); capped at Agility indoors; also an active defense against falls.",
+      "mods": []
+    },
+    {
+      "name": "Life Drain",
+      "category": null,
+      "range": "Touch",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Roll against Toughness (or Willpower) or an active defense: 1 damage per net success, healing yourself 1 per 2 damage dealt.",
+      "mods": [
+        {
+          "name": "Vampirism",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 1
+          },
+          "repeatable": false,
+          "summary": "Deals physical damage resisted normally and can hit inanimate targets, healing only from living ones."
+        }
+      ]
+    },
+    {
+      "name": "Light/Effect",
+      "category": null,
+      "range": "Special",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "Freely generate harmless light (filling the zone or a beam to Distant Range), or another innocuous environmental effect (called Effect).",
+      "mods": []
+    },
+    {
+      "name": "Lightning Reflexes",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "+6 Edge and instant weapon draws.",
+      "mods": [
+        {
+          "name": "Fighting/Marksmanship",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "Only applies to close combat or to ranged combat (pick one)."
+        }
+      ]
+    },
+    {
+      "name": "Luck",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Gain Luck dice equal to your rank each issue to add to your rolls or subtract successes from rolls against you.",
+      "mods": [
+        {
+          "name": "Control",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 4
+          },
+          "repeatable": false,
+          "summary": "Spend Luck on anyone within Distant Range at any time as a free action."
+        },
+        {
+          "name": "Unbelievable",
+          "type": "pro",
+          "cost": {
+            "kind": "per_rank",
+            "value": 1
+          },
+          "repeatable": false,
+          "summary": "Spend Luck dice on lucky breaks, which can be more outlandish than Resolve-bought ones."
+        }
+      ]
+    },
+    {
+      "name": "Machine Control",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Remotely control machines and electronics within Distant Range, using your rank to operate them; -1d per extra machine.",
+      "mods": [
+        {
+          "name": "Interface",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Only computers, and anything they control."
+        }
+      ]
+    },
+    {
+      "name": "Martial Arts",
+      "category": null,
+      "range": "Touch",
+      "rank": {
+        "kind": "baseline",
+        "base": "Might"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Unarmed attack and defense with subdual damage; substitute for Might in grapples and stunts and for Abilities with mundane melee weapons.",
+      "mods": [
+        {
+          "name": "Deflect",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 4
+          },
+          "repeatable": false,
+          "summary": "Active defense against ranged physical and energy attacks (not area)."
+        },
+        {
+          "name": "Deflect Missiles",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Active defense against ranged physical attacks (not area)."
+        }
+      ]
+    },
+    {
+      "name": "Master of Disguise",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": false,
+      "summary": "Make convincing disguises quickly and mimic voices and mannerisms, rolling Charm vs Perception.",
+      "mods": []
+    },
+    {
+      "name": "Matter Chameleon",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Take on a touched object's properties for the scene, like Solid Form capped by its Structure, plus Aura from its energy capped by that energy's rank.",
+      "mods": []
+    },
+    {
+      "name": "Mind Blast",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Psychic damage attack against Willpower; no effect on inanimate objects without a psychic presence.",
+      "mods": []
+    },
+    {
+      "name": "Mind Control",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Roll against Willpower to command a living being within Distant Range, or spend 1 Resolve to plant a delayed suggestion; +2d to resist self-destructive orders.",
+      "mods": [
+        {
+          "name": "Hypnosis",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Requires a calm face-to-face conversation; useless in combat."
+        },
+        {
+          "name": "Pheromones",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Chemical: resisted by the better of Toughness or Willpower; non-breathers, life support and toxin immunity block it."
+        }
+      ]
+    },
+    {
+      "name": "Nullify",
+      "category": null,
+      "range": "Zone",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Automatically suppress Traits of one Source at or below your rank for everyone in the zone; requires concentration (1 Resolve to act); targets can pay 1 Resolve per use to push through.",
+      "mods": [
+        {
+          "name": "Also X",
+          "type": "pro",
+          "cost": {
+            "kind": "per_rank",
+            "value": 1
+          },
+          "repeatable": true,
+          "summary": "Each additional Source adds +1 Hero Point per rank."
+        }
+      ]
+    },
+    {
+      "name": "Omni-Power",
+      "category": null,
+      "range": "Special",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "choice",
+        "options": [
+          {
+            "label": "Narrow",
+            "value": 3
+          },
+          {
+            "label": "Broad",
+            "value": 5
+          }
+        ],
+        "per_rank": true
+      },
+      "affects_resolve": true,
+      "summary": "Mimic other Powers at this rank, -1d per additional use on the same page; default-rank Powers need rank at least their cost; certain Powers excluded. Pros cost Resolve per use unless bought on Omni-Power.",
+      "mods": []
+    },
+    {
+      "name": "Phasing",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 9
+      },
+      "affects_resolve": true,
+      "summary": "Go out of phase: immune to physical and energy attacks and able to pass through solids (not force fields) but can't affect anything physical; toggle once per turn.",
+      "mods": [
+        {
+          "name": "Intangible",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 3
+          },
+          "repeatable": false,
+          "summary": "Ordinary force fields can't hold you; Ward fields can unless your Willpower exceeds their rank."
+        }
+      ]
+    },
+    {
+      "name": "Plasticity",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Stretchy body that can mimic effects by shaping itself, serves as passive defense vs physical attacks, and substitutes for Might in grapples and close combat.",
+      "mods": []
+    },
+    {
+      "name": "Polymorph",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Roll against Toughness (or Willpower) or an active defense to turn a living being into a harmless form for the duration.",
+      "mods": []
+    },
+    {
+      "name": "Portable Storehouse",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "affects_resolve": true,
+      "summary": "Call up mundane gear, weapons, armor or vehicles from a stash; they last for the scene unless backed by Resources or Wealth.",
+      "mods": []
+    },
+    {
+      "name": "Possession",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Roll against Willpower to take over a living body within Distant Range, using its physical Traits and your mental ones; your body lies dormant.",
+      "mods": [
+        {
+          "name": "Meld",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 4
+          },
+          "repeatable": false,
+          "summary": "Your body merges into the host for the duration."
+        }
+      ]
+    },
+    {
+      "name": "Power Absorption",
+      "category": null,
+      "range": "Touch",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Touch and roll against the target's highest Trait of one Source to steal those Traits for the duration, knocking them out; -1d per extra victim.",
+      "mods": [
+        {
+          "name": "Also X",
+          "type": "pro",
+          "cost": {
+            "kind": "per_rank",
+            "value": 1
+          },
+          "repeatable": true,
+          "summary": "Each additional Source adds +1 Hero Point per rank."
+        },
+        {
+          "name": "Only X",
+          "type": "con",
+          "cost": {
+            "kind": "choice",
+            "options": [
+              -2,
+              -4
+            ]
+          },
+          "repeatable": false,
+          "summary": "-2 to take only Abilities, Talents or Powers; -4 for one specific Trait."
+        }
+      ]
+    },
+    {
+      "name": "Power Mimicry",
+      "category": null,
+      "range": "Touch",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Touch and roll against the target's highest Trait of one Source to copy those Traits for the duration without harming them; -1d per extra source character.",
+      "mods": [
+        {
+          "name": "Also X",
+          "type": "pro",
+          "cost": {
+            "kind": "per_rank",
+            "value": 1
+          },
+          "repeatable": true,
+          "summary": "Each additional Source adds +1 Hero Point per rank."
+        },
+        {
+          "name": "Only X",
+          "type": "con",
+          "cost": {
+            "kind": "choice",
+            "options": [
+              -2,
+              -4
+            ]
+          },
+          "repeatable": false,
+          "summary": "-2 to copy only Abilities, Talents or Powers; -4 for one specific Trait."
+        }
+      ]
+    },
+    {
+      "name": "Precognition",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 12
+      },
+      "affects_resolve": true,
+      "summary": "Spend escalating Resolve (1, 2, 3...) per scene to undo a character's just-finished turn and act immediately instead.",
+      "mods": []
+    },
+    {
+      "name": "Preparation",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "special"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "affects_resolve": false,
+      "summary": "Makes Resolve-bought narrative details far more powerful when explained by prior planning (perfect item, prepared location, known info, contacts); no rank.",
+      "mods": []
+    },
+    {
+      "name": "Psi-Screen",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Willpower"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Use instead of Willpower against mental attacks and effects, and to sense and resist mind reading and probes.",
+      "mods": [
+        {
+          "name": "Cloak Mind",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Telepaths must beat your Psi-Screen rank to detect you."
+        }
+      ]
+    },
+    {
+      "name": "Psychometry",
+      "category": null,
+      "range": "Touch",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 9
+      },
+      "affects_resolve": false,
+      "summary": "Learn the basic history of touched objects; spend 1 Resolve for details on a connected person or event.",
+      "mods": []
+    },
+    {
+      "name": "Quick Change",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": false,
+      "summary": "Change clothing and grooming instantly as an action.",
+      "mods": [
+        {
+          "name": "Costume",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "Only swaps between your costume and what you last wore."
+        }
+      ]
+    },
+    {
+      "name": "Radar",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": false,
+      "summary": "A radar sense gives a 3D picture of your surroundings, but not flat images.",
+      "mods": [
+        {
+          "name": "Sonar",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "Only works underwater."
+        },
+        {
+          "name": "Tremor Sense",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "Senses ground vibrations instead, detecting only things touching or shaking the ground."
+        }
+      ]
+    },
+    {
+      "name": "Regeneration",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "affects_resolve": true,
+      "summary": "Heal 1 damage per hour and wake up as soon as you heal a point.",
+      "mods": [
+        {
+          "name": "Fast",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 6
+          },
+          "repeatable": false,
+          "summary": "Heal 1 damage per minute."
+        },
+        {
+          "name": "Instant",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 18
+          },
+          "repeatable": false,
+          "summary": "Heal 1 damage per page."
+        }
+      ]
+    },
+    {
+      "name": "Resistance",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Toughness"
+      },
+      "cost": {
+        "kind": "per_two_ranks"
+      },
+      "affects_resolve": true,
+      "summary": "Use instead of Toughness to resist radiation, temperature extremes and toxins.",
+      "mods": []
+    },
+    {
+      "name": "Running",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "fixed:3"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "Travel Power for fast ground movement (also wheels, skating, bouncing); 3d baseline is normal human speed.",
+      "mods": [
+        {
+          "name": "Hover",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Hover just above the ground, ignoring ground hazards and triggers."
+        }
+      ]
+    },
+    {
+      "name": "Separation",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "Detach body parts that act independently with whatever abilities make sense.",
+      "mods": []
+    },
+    {
+      "name": "Shockwave",
+      "category": null,
+      "range": "Zone",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_two_ranks"
+      },
+      "affects_resolve": true,
+      "summary": "Roll against Might or weight rank for everyone around you: push back with -1d until your next turn; 3+ net successes also knock prone and cost a turn.",
+      "mods": []
+    },
+    {
+      "name": "Shrinking",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Shrink, lowering weight rank; substitute Shrinking for Agility and gain Leaping and Strike at half rank (or Trait +1d).",
+      "mods": []
+    },
+    {
+      "name": "Slay",
+      "category": null,
+      "range": "Touch",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Roll against Toughness (or Willpower) or an active defense to deal 2 damage per net success to a living target; ignores Armor.",
+      "mods": []
+    },
+    {
+      "name": "Slick",
+      "category": null,
+      "range": "Zone",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Make the ground slippery for the scene; crossers roll Agility vs your rank or fall prone, trapped with -2d until they stand; drivers roll Vehicles.",
+      "mods": []
+    },
+    {
+      "name": "Speak with Dead",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": false,
+      "summary": "Ask a corpse a number of truthful questions equal to your rank.",
+      "mods": []
+    },
+    {
+      "name": "Specialty",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "special"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 0
+      },
+      "affects_resolve": false,
+      "summary": "Street/Low Level only: each Hero takes one unique Specialty for +1d to certain rolls (can exceed Trait Cap) and 1 Resolve to make 6s explode on them; no rank.",
+      "mods": []
+    },
+    {
+      "name": "Spinning",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Spin at super speed: use Spinning instead of Might for close combat, grapples and stunts, and instead of Agility to defend against physical attacks (or Ability +1d).",
+      "mods": []
+    },
+    {
+      "name": "Star Gate",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": false,
+      "summary": "Spend an action to travel to distant worlds; free uses per issue equal Willpower, then 1 Resolve each.",
+      "mods": [
+        {
+          "name": "Portal",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Open portals others, including ships, can pass through."
+        }
+      ]
+    },
+    {
+      "name": "Stretching",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "choice",
+        "options": [
+          {
+            "label": "Close Range",
+            "value": 1
+          },
+          {
+            "label": "Distant Range",
+            "value": 3
+          },
+          {
+            "label": "Extreme Range",
+            "value": 6
+          }
+        ],
+        "per_rank": false
+      },
+      "affects_resolve": true,
+      "summary": "Stretch your body to make close and grappling attacks at non-adjacent targets, out to Close, Distant or Extreme Range depending on version.",
+      "mods": [
+        {
+          "name": "Long Reach",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "Just long reach; you can't stretch your whole body."
+        }
+      ]
+    },
+    {
+      "name": "Strike",
+      "category": null,
+      "range": "Touch",
+      "rank": {
+        "kind": "baseline",
+        "base": "choice:Might|Martial Arts"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "A damaging close combat attack and defense of a chosen damage type (claws, energized fists, etc.).",
+      "mods": [
+        {
+          "name": "Deflect",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 4
+          },
+          "repeatable": false,
+          "summary": "Active defense against ranged physical and energy attacks (not area)."
+        },
+        {
+          "name": "Deflect Missiles",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Active defense against ranged physical attacks (not area)."
+        },
+        {
+          "name": "Reach/Throw",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Hit opponents within Close Range via long reach or throwing."
+        },
+        {
+          "name": "Sweep",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 4
+          },
+          "repeatable": false,
+          "summary": "Area attack in a 90-degree arc out to 5-25 feet (50 with Reach)."
+        },
+        {
+          "name": "Subdual",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "Deals subdual damage."
+        },
+        {
+          "name": "Weapons",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "Represents skill with a chosen weapon group; attack and defend with Strike rank only while armed."
+        }
+      ]
+    },
+    {
+      "name": "Stun",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Roll against Toughness (or Willpower) or an active defense to incapacitate a living target.",
+      "mods": [
+        {
+          "name": "EMP",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Affects Tech-Source Inanimate characters and electronics instead of the living."
+        }
+      ]
+    },
+    {
+      "name": "Summoning",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "special",
+        "note": "1 Hero Point per rank for every 2d of Minion Threat (round up), e.g. 5d-6d Threat = 3 HP per rank"
+      },
+      "affects_resolve": true,
+      "summary": "Summon Minions per scene by rank (2 at 1d-2d up to 1,000 at 24d-26d) with a Threat chosen at purchase, capped at Trait Cap -6d (or -3d if 10 or fewer).",
+      "mods": [
+        {
+          "name": "Animals",
+          "type": "pro",
+          "cost": {
+            "kind": "choice",
+            "options": [
+              1,
+              2
+            ],
+            "per_rank": true
+          },
+          "repeatable": false,
+          "summary": "Minions are animals with special traits: +1 per rank for a narrow selection, +2 per rank for a wide variety."
+        },
+        {
+          "name": "Automatons",
+          "type": "pro",
+          "cost": {
+            "kind": "per_rank",
+            "value": 1
+          },
+          "repeatable": false,
+          "summary": "Minions have Inanimate (Mindless)."
+        },
+        {
+          "name": "Duplicates",
+          "type": "pro",
+          "cost": {
+            "kind": "per_rank",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Minions are copies of you sharing your unique abilities."
+        },
+        {
+          "name": "Shooters",
+          "type": "pro",
+          "cost": {
+            "kind": "per_rank",
+            "value": 1
+          },
+          "repeatable": false,
+          "summary": "Minions can attack out to Distant Range."
+        },
+        {
+          "name": "Unique",
+          "type": "pro",
+          "cost": {
+            "kind": "range",
+            "min": 1,
+            "max": 4,
+            "per_rank": true
+          },
+          "repeatable": false,
+          "summary": "Minions get special abilities: +1 per rank minor, +2 moderate, +4 major; GM approval."
+        }
+      ]
+    },
+    {
+      "name": "Acute X",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "per_two_ranks"
+      },
+      "affects_resolve": false,
+      "summary": "One chosen sense uses this rank instead of Perception for rolls involving it (not for Edge). Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "Analytic X",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "Use one sense to learn a target's basic physical and chemical makeup. Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "Astral Sight",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "See the astral realm, letting you interact with spirits and astral projectors and spot Blending or Invisible living beings. Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "Circular Vision",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "Full 360-degree field of view. Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "Enhanced Hearing",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "Hear very faint or distant sounds with high-threshold Perception rolls, plus infrasound and ultrasound. Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "Hypersensitive Touch",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "Read print by touch and feel vibrations through walls. Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "Lie Detection",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": false,
+      "summary": "Automatically know when someone within Close Range is lying unless they are protected. Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "Microscopic Vision",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "Magnify vision as far as needed, down to tiny scales. Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "Night Vision",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": false,
+      "summary": "See in total darkness. Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "Radio Hearing",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "Hear and intercept radio transmissions. Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "Telescopic Vision",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "See fine detail at great distances. Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "Thermal Vision",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 2
+      },
+      "affects_resolve": false,
+      "summary": "See heat, including through thin objects and in the dark; foiled by matching temperatures. Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "Tracking Scent",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "Identify, track and read emotions by smell (threshold 4-6 rolls). Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "True Sight",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "affects_resolve": false,
+      "summary": "See through disguises, illusions, transformations, Blending and Invisibility. Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "Ultra Vision",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 2
+      },
+      "affects_resolve": false,
+      "summary": "See ultraviolet and in very dim light, but not total darkness. Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "X-Ray Vision",
+      "category": "Super Senses",
+      "range": "Self",
+      "rank": {
+        "kind": "baseline",
+        "base": "Perception"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "affects_resolve": false,
+      "summary": "See through solid objects. Part of Super Senses, which counts as a single Power ranked at the higher of Perception or Acute X.",
+      "mods": []
+    },
+    {
+      "name": "Super Speed",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "Travel at this speed rank; Agility equals your rank, Edge is rank x3, usable for close attack and defense and grapple defense. At 9d+ gain extra benefits (2 range classes per page, run on water/walls, 2 Minions per net success, Quick Change and Vanish).",
+      "mods": []
+    },
+    {
+      "name": "Swimming",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_two_ranks"
+      },
+      "affects_resolve": false,
+      "summary": "Travel Power through water; also breathe water, move and sense freely underwater, and ignore depth pressure and cold.",
+      "mods": [
+        {
+          "name": "Lungs",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "Can't breathe water but can hold your breath a long time."
+        }
+      ]
+    },
+    {
+      "name": "Swing Line",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_two_ranks"
+      },
+      "affects_resolve": false,
+      "summary": "Travel Power for swinging between anchor points within Distant Range; lines have Structure equal to half your rank.",
+      "mods": [
+        {
+          "name": "Natural",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Can't make lines; only works where vines or similar exist."
+        }
+      ]
+    },
+    {
+      "name": "Telekinesis",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Move things at up to Distant Range with your rank as Might; attack, hold, throw, or actively defend against ranged attacks (energy needs a shielding object); -1d per extra object.",
+      "mods": [
+        {
+          "name": "Impel",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -4
+          },
+          "repeatable": false,
+          "summary": "Only straight-line pushes or holding in place, no fine control."
+        }
+      ]
+    },
+    {
+      "name": "Telepathy",
+      "category": null,
+      "range": "Ranged",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": true,
+      "summary": "Sense minds, communicate mentally, read surface thoughts or probe memories within Distant Range, rolling against Willpower or Telepathy.",
+      "mods": [
+        {
+          "name": "Alter Memories",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 6
+          },
+          "repeatable": false,
+          "summary": "With 3+ net successes on a probe, rewrite memories for the scene, or permanently for 1 Resolve."
+        },
+        {
+          "name": "Cloak Others",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Hide the minds of everyone within Close Range from telepathy."
+        },
+        {
+          "name": "Dream Travel",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Enter others' dreams, where your physical Traits use Willpower or Telepathy."
+        },
+        {
+          "name": "Mind Link",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Link minds equal to your rank for shared communication within Extreme Range."
+        },
+        {
+          "name": "Empathy",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Limited to emotions and mental states, not words or images."
+        }
+      ]
+    },
+    {
+      "name": "Teleportation",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "Instantly travel distances set by rank as a move; unfamiliar destinations risk failure and a knockout; 1 Resolve for two jumps in a page.",
+      "mods": [
+        {
+          "name": "Portal",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Open portals others can pass through."
+        },
+        {
+          "name": "Medium",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -2
+          },
+          "repeatable": false,
+          "summary": "Only travel via a medium such as power lines, shadows or reflections."
+        }
+      ]
+    },
+    {
+      "name": "Time Stop",
+      "category": null,
+      "range": "Zone",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "Freeze time in the zone for pages equal to your rank at escalating Resolve cost per scene; you can move things but not harm frozen targets.",
+      "mods": []
+    },
+    {
+      "name": "Time Travel",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": false,
+      "summary": "Spend an action to travel forward or back in time, under GM-defined rules.",
+      "mods": [
+        {
+          "name": "Portal",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 2
+          },
+          "repeatable": false,
+          "summary": "Open portals others can pass through."
+        }
+      ]
+    },
+    {
+      "name": "Total Recall",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": false,
+      "summary": "Perfectly remember what you attend to, with Intellect rolls to recall background details.",
+      "mods": [
+        {
+          "name": "Playback",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 1
+          },
+          "repeatable": false,
+          "summary": "Memories can be transferred, copied and displayed."
+        }
+      ]
+    },
+    {
+      "name": "Tracer",
+      "category": null,
+      "range": "Touch",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "Tag touched objects to track them worldwide for the story; finding the tag needs a Daunting (3) Perception roll.",
+      "mods": [
+        {
+          "name": "Tracking",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 3
+          },
+          "repeatable": false,
+          "summary": "Track someone via a recently owned item or a place they visited in the last day."
+        }
+      ]
+    },
+    {
+      "name": "Animal Forms",
+      "category": "Transformation",
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Turn into familiar animals, taking their form and their physical Abilities and Powers capped at your rank. Changing is a free action on your turn.",
+      "mods": [
+        {
+          "name": "Enhanced",
+          "type": "pro",
+          "cost": {
+            "kind": "flat",
+            "value": 4
+          },
+          "repeatable": false,
+          "summary": "Replace the animal's single highest Trait with your Power rank."
+        },
+        {
+          "name": "Only X",
+          "type": "con",
+          "cost": {
+            "kind": "choice",
+            "options": [
+              -2,
+              -4
+            ]
+          },
+          "repeatable": false,
+          "summary": "Limited to a category of animals; -4 for a single animal or very small group."
+        }
+      ]
+    },
+    {
+      "name": "Doppelganger",
+      "category": "Transformation",
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "affects_resolve": true,
+      "summary": "Become a perfect copy of any roughly humanoid person you've seen, fooling biometrics, without gaining their Traits.",
+      "mods": []
+    },
+    {
+      "name": "Object Forms",
+      "category": "Transformation",
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Turn into shapes, tools, weapons, machines or vehicles: exert rank force, add half rank to users' rolls, or gain machine traits up to your rank; resize as Growth/Shrinking at this rank.",
+      "mods": []
+    },
+    {
+      "name": "Shapeshifting",
+      "category": "Transformation",
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Reshape your body with Hero Points equal to your rank to temporarily raise Agility, Might, Toughness or buy body-based Powers; for Resolve, rank counts as Shapeshifting plus your best physical Ability.",
+      "mods": []
+    },
+    {
+      "name": "Transmutation",
+      "category": null,
+      "range": "Touch",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 2
+      },
+      "affects_resolve": true,
+      "summary": "Alter touched matter's composition (gases in Close Range automatically; solids/liquids vs Structure or weight), changing Structure or state for the scene; 1 Resolve for permanence or unique substances.",
+      "mods": []
+    },
+    {
+      "name": "Tunneling",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_rank",
+        "value": 1
+      },
+      "affects_resolve": false,
+      "summary": "Travel Power for digging through the ground, leaving tunnels open or collapsed.",
+      "mods": []
+    },
+    {
+      "name": "Two-Dimensional",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "affects_resolve": true,
+      "summary": "Become flat and shadow-like: weightless and silent, able to slide along any surface ignoring gravity and slip through cracks.",
+      "mods": []
+    },
+    {
+      "name": "Two-Fisted",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "Spend 1 Resolve to defeat 2 Minions per net success with a physical attack; +1d Weapon Bonus when dual-wielding mundane weapons.",
+      "mods": [
+        {
+          "name": "Fighting/Marksmanship",
+          "type": "con",
+          "cost": {
+            "kind": "flat",
+            "value": -1
+          },
+          "repeatable": false,
+          "summary": "Only applies to close combat/melee weapons or to ranged combat/ranged weapons (pick one)."
+        }
+      ]
+    },
+    {
+      "name": "Vanish",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "Using an action and movement, disappear and relocate up to a page's movement unseen.",
+      "mods": []
+    },
+    {
+      "name": "Variant",
+      "category": null,
+      "range": "Special",
+      "rank": {
+        "kind": "special"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "An alternate version of a Power you already have, worth the same Hero Points as the original after Pros/Cons; not allowed for Powers that affect other Traits.",
+      "mods": []
+    },
+    {
+      "name": "Ventriloquism",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": false,
+      "summary": "Mimic sounds and voices and throw your voice, rolling Charm vs Perception.",
+      "mods": []
+    },
+    {
+      "name": "Wall-Crawling",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "power"
+      },
+      "cost": {
+        "kind": "per_two_ranks"
+      },
+      "affects_resolve": false,
+      "summary": "Cling to and move along walls and ceilings at normal speed; carrying capacity limited by rank if lower than Might.",
+      "mods": []
+    },
+    {
+      "name": "Weakness Detection",
+      "category": null,
+      "range": "Self",
+      "rank": {
+        "kind": "default"
+      },
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "affects_resolve": true,
+      "summary": "Spot weak points of what you observe; spend 1 Resolve to give your physical/energy attacks Penetrating against it for the scene.",
+      "mods": []
+    }
+  ],
+  "generic_mods": [
+    {
+      "name": "Affect Inanimate",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "repeatable": true,
+      "summary": "A living-only Power can also affect Inanimate beings of one Source."
+    },
+    {
+      "name": "Area of Effect (Area)",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 2
+      },
+      "repeatable": false,
+      "summary": "Ranged Power may target a 10-50 ft area or a single target, sized per use."
+    },
+    {
+      "name": "Area of Effect (Burst)",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "repeatable": false,
+      "summary": "Ranged Power always hits an area of fixed size (10-50 ft)."
+    },
+    {
+      "name": "Area of Effect (Zone)",
+      "type": "pro",
+      "cost": {
+        "kind": "choice",
+        "options": [
+          2,
+          4
+        ]
+      },
+      "repeatable": false,
+      "summary": "May target the area 5-25 ft around you or a single target; +2 on Ranged Powers, +4 on Touch Powers."
+    },
+    {
+      "name": "Area of Effect (Nova)",
+      "type": "pro",
+      "cost": {
+        "kind": "choice",
+        "options": [
+          1,
+          2
+        ]
+      },
+      "repeatable": false,
+      "summary": "Always hits a fixed area 5-25 ft around you; +1 on Ranged Powers, +2 on Touch Powers."
+    },
+    {
+      "name": "Armor Piercing",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 2
+      },
+      "repeatable": false,
+      "summary": "Halves passive defenses from mundane armor; incompatible with Weak."
+    },
+    {
+      "name": "Build-Up",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -2
+      },
+      "repeatable": false,
+      "summary": "Usable only from the third page of action onward."
+    },
+    {
+      "name": "Burnout",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -4
+      },
+      "repeatable": false,
+      "summary": "Roll 2 dice each use; 6 or less burns it out for the scene."
+    },
+    {
+      "name": "Carrier Attack",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "repeatable": false,
+      "summary": "On a hit, immediately make a follow-up attack with a separately bought carrier Power (passive defenses only)."
+    },
+    {
+      "name": "Charges",
+      "type": "con",
+      "cost": {
+        "kind": "range",
+        "min": -1,
+        "max": -4
+      },
+      "repeatable": false,
+      "summary": "Limited uses per scene: -1 for 6, -2 for 3, -4 for 1."
+    },
+    {
+      "name": "Close",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 2
+      },
+      "repeatable": false,
+      "summary": "Touch Power can reach targets within Close Range."
+    },
+    {
+      "name": "Close",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -2
+      },
+      "repeatable": false,
+      "summary": "Ranged Power is limited to Close Range."
+    },
+    {
+      "name": "Concentration",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -4
+      },
+      "repeatable": false,
+      "summary": "Using it prevents other actions, movement and defense until your next turn; ongoing effects need continued focus."
+    },
+    {
+      "name": "Conditional",
+      "type": "con",
+      "cost": {
+        "kind": "range",
+        "min": -1,
+        "max": -4
+      },
+      "repeatable": false,
+      "summary": "Only works under certain conditions: -1 often, -2 occasionally, -4 rarely."
+    },
+    {
+      "name": "Constant",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -2
+      },
+      "repeatable": false,
+      "summary": "Always on and can't be turned off."
+    },
+    {
+      "name": "Contagious",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 4
+      },
+      "repeatable": false,
+      "summary": "Anyone touching an affected target can be attacked too and becomes contagious."
+    },
+    {
+      "name": "Costly",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -4
+      },
+      "repeatable": false,
+      "summary": "Each use costs 1 Resolve."
+    },
+    {
+      "name": "Degrades",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -2
+      },
+      "repeatable": false,
+      "summary": "Loses 1d per use for the scene."
+    },
+    {
+      "name": "Delay",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -4
+      },
+      "repeatable": false,
+      "summary": "Takes effect after a fixed delay too long to matter in combat."
+    },
+    {
+      "name": "Exclusive",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -1
+      },
+      "repeatable": false,
+      "summary": "Can't be used alongside other Exclusive Powers; must be on at least 2 Powers."
+    },
+    {
+      "name": "Expansive",
+      "type": "pro",
+      "cost": {
+        "kind": "range",
+        "min": 6,
+        "max": 18
+      },
+      "repeatable": false,
+      "summary": "Zone Power: spend 1 Resolve to enlarge the area for the scene: +6 Close, +12 Distant, +18 Extreme Range."
+    },
+    {
+      "name": "Fuse",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 2
+      },
+      "repeatable": false,
+      "summary": "Set the Power to trigger after a chosen delay up to Willpower hours; can cancel within Extreme Range."
+    },
+    {
+      "name": "Harmful",
+      "type": "con",
+      "cost": {
+        "kind": "range",
+        "min": -1,
+        "max": -4
+      },
+      "repeatable": false,
+      "summary": "Hurts you each use: -1 for 1 damage, -2 for 1-3, -4 for 1-6; 1 Resolve avoids it."
+    },
+    {
+      "name": "Imbue",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 4
+      },
+      "repeatable": false,
+      "summary": "A self-only Power can be granted by touch to up to Willpower subjects."
+    },
+    {
+      "name": "Independent",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "repeatable": false,
+      "summary": "The Power acts as a separate character on pages you let it."
+    },
+    {
+      "name": "Item",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -1
+      },
+      "repeatable": false,
+      "summary": "Comes from a carried or worn item, mundane or unbreakable; on Abilities/Talents the rank drops to 2d without it."
+    },
+    {
+      "name": "Limited",
+      "type": "con",
+      "cost": {
+        "kind": "range",
+        "min": -1,
+        "max": -4
+      },
+      "repeatable": false,
+      "summary": "Catch-all reduction in usefulness: -1 somewhat, -2 significantly, -4 severely."
+    },
+    {
+      "name": "Line of Sight",
+      "type": "pro",
+      "cost": {
+        "kind": "range",
+        "min": 2,
+        "max": 6
+      },
+      "repeatable": false,
+      "summary": "Reach Extreme Range: +2 from Distant, +4 from Close, +6 from Touch (+4 for Strike (Throw))."
+    },
+    {
+      "name": "Ongoing",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "repeatable": false,
+      "summary": "Damage continues at 1 per page for pages equal to the initial damage."
+    },
+    {
+      "name": "Only Inanimate",
+      "type": "con",
+      "cost": {
+        "kind": "range",
+        "min": -1,
+        "max": -4
+      },
+      "repeatable": false,
+      "summary": "Living-only Power affects Inanimate beings instead: -1 any Source, -2 two Sources, -4 one Source."
+    },
+    {
+      "name": "Overkill",
+      "type": "con",
+      "cost": {
+        "kind": "special",
+        "note": "reduces base cost by 1 Hero Point per rank (1/rank becomes 1 per 2 ranks)"
+      },
+      "repeatable": false,
+      "summary": "Targets double successes on active defenses against it."
+    },
+    {
+      "name": "Overload",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 2
+      },
+      "repeatable": false,
+      "summary": "Boost +3d for one page (lose it for the scene) or +6d (lose it for the issue)."
+    },
+    {
+      "name": "Penetrating",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 4
+      },
+      "repeatable": false,
+      "summary": "Halves passive defenses except Force Field; incompatible with Weak."
+    },
+    {
+      "name": "Phase Shift",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 4
+      },
+      "repeatable": false,
+      "summary": "Affects incorporeal targets as if solid, and lets phased users affect solid ones."
+    },
+    {
+      "name": "Ranged",
+      "type": "pro",
+      "cost": {
+        "kind": "choice",
+        "options": [
+          2,
+          4
+        ]
+      },
+      "repeatable": false,
+      "summary": "Reach Distant Range: +2 from Close, +4 from Touch (+2 for Strike (Throw))."
+    },
+    {
+      "name": "Readied",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -2
+      },
+      "repeatable": false,
+      "summary": "Must spend a page (or an action and 1 Resolve) readying between uses."
+    },
+    {
+      "name": "Recharge",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -4
+      },
+      "repeatable": false,
+      "summary": "Usable only once every 3 pages."
+    },
+    {
+      "name": "Resisted",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "repeatable": false,
+      "summary": "Special-effect Power can't be resisted with active defenses; GM approval."
+    },
+    {
+      "name": "Ricochet",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 2
+      },
+      "repeatable": false,
+      "summary": "Bank shots around cover without penalty; 1 Resolve to defeat 2 Minions per net success."
+    },
+    {
+      "name": "Selective",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 4
+      },
+      "repeatable": false,
+      "summary": "Doesn't affect anyone you don't want; 1 Resolve to pick targets within an area attack."
+    },
+    {
+      "name": "Shutdown",
+      "type": "con",
+      "cost": {
+        "kind": "range",
+        "min": -1,
+        "max": -4
+      },
+      "repeatable": false,
+      "summary": "Something blocks or switches it off: -1 often works, -2 occasionally, -4 rarely."
+    },
+    {
+      "name": "Side Effect",
+      "type": "con",
+      "cost": {
+        "kind": "range",
+        "min": -1,
+        "max": -4
+      },
+      "repeatable": false,
+      "summary": "Detrimental side effect: -1 annoying, -2 harmful, -4 catastrophic."
+    },
+    {
+      "name": "Signature",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -1
+      },
+      "repeatable": false,
+      "summary": "Leaves a traceable signature."
+    },
+    {
+      "name": "Subtle",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 2
+      },
+      "repeatable": false,
+      "summary": "No noise, light or other easily noticed signs at a distance."
+    },
+    {
+      "name": "Undetectable",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "repeatable": false,
+      "summary": "Can't be detected or traced by ordinary senses; -3d to active defenses against such attacks."
+    },
+    {
+      "name": "Sustained",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -2
+      },
+      "repeatable": false,
+      "summary": "Costs 1 action per page to maintain."
+    },
+    {
+      "name": "Touch",
+      "type": "con",
+      "cost": {
+        "kind": "choice",
+        "options": [
+          -2,
+          -4
+        ]
+      },
+      "repeatable": false,
+      "summary": "Requires contact: -2 from Close Range, -4 from Distant Range."
+    },
+    {
+      "name": "Toxin",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -2
+      },
+      "repeatable": false,
+      "summary": "A disease, drug or poison; toxin immunity blocks it and Resistance defends."
+    },
+    {
+      "name": "Trap",
+      "type": "pro",
+      "cost": {
+        "kind": "flat",
+        "value": 2
+      },
+      "repeatable": false,
+      "summary": "Set the Power as a trap on a small area or object; up to Willpower traps at once."
+    },
+    {
+      "name": "Two-Handed",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -1
+      },
+      "repeatable": false,
+      "summary": "Needs both hands free."
+    },
+    {
+      "name": "Uncontrolled",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -2
+      },
+      "repeatable": false,
+      "summary": "Activates on its own in certain situations."
+    },
+    {
+      "name": "Unreliable",
+      "type": "con",
+      "cost": {
+        "kind": "flat",
+        "value": -2
+      },
+      "repeatable": false,
+      "summary": "Roll 2 dice each use; 6 or less fails and wastes the action."
+    },
+    {
+      "name": "Weak",
+      "type": "con",
+      "cost": {
+        "kind": "special",
+        "note": "reduces base cost by 1 Hero Point per rank (1/rank becomes 1 per 2 ranks)"
+      },
+      "repeatable": false,
+      "summary": "Targets double successes on passive defenses; incompatible with Armor Piercing and Penetrating."
+    }
+  ],
+  "perks": [
+    {
+      "name": "Authority",
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "summary": "Special legal or social powers such as clearances, immunity or arrest authority."
+    },
+    {
+      "name": "Contacts",
+      "cost": {
+        "kind": "per_unit",
+        "value": 1,
+        "unit": "type of contact"
+      },
+      "summary": "People in a chosen field who provide information and favors."
+    },
+    {
+      "name": "Fame",
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "summary": "You are famous and recognized favorably (civilian or heroic identity)."
+    },
+    {
+      "name": "Fourth Wall",
+      "cost": {
+        "kind": "flat",
+        "value": 6
+      },
+      "summary": "Earn 1 Resolve once per scene when a fourth-wall joke gets the table laughing."
+    },
+    {
+      "name": "Headquarters",
+      "cost": {
+        "kind": "per_unit",
+        "value": 1,
+        "unit": "3 Base Points"
+      },
+      "summary": "A base of operations; each Hero Point buys 3 Base Points."
+    },
+    {
+      "name": "Infamy",
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "summary": "Ordinary criminals fear you."
+    },
+    {
+      "name": "Patron",
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "summary": "A backer supplies information, gear, funding and support."
+    },
+    {
+      "name": "Pet/Sidekick",
+      "cost": {
+        "kind": "per_unit",
+        "value": 1,
+        "unit": "10 Hero Points of companion"
+      },
+      "summary": "A companion built with 10 Hero Points per Hero Point spent, up to half yours."
+    },
+    {
+      "name": "Reputation",
+      "cost": {
+        "kind": "flat",
+        "value": 3
+      },
+      "summary": "Credibility and respect in a particular field."
+    },
+    {
+      "name": "Resources",
+      "cost": {
+        "kind": "flat",
+        "value": 1
+      },
+      "summary": "Access to a supply of specialized equipment, without being rich."
+    },
+    {
+      "name": "Unique Vehicle",
+      "cost": {
+        "kind": "per_unit",
+        "value": 1,
+        "unit": "25 Vehicle Points"
+      },
+      "summary": "Custom vehicles; each Hero Point buys 25 Vehicle Points."
+    },
+    {
+      "name": "Wealth/Great Wealth",
+      "cost": {
+        "kind": "choice",
+        "options": [
+          {
+            "label": "Wealth",
+            "value": 3
+          },
+          {
+            "label": "Great Wealth",
+            "value": 6
+          }
+        ],
+        "per_rank": false
+      },
+      "summary": "Truly rich (3) or among the world's richest, with a once-per-issue absurd purchase for 1 Resolve (6)."
+    }
+  ],
+  "flaws": [
+    {
+      "name": "Absentminded",
+      "kind": "ordinary",
+      "summary": "You forget things, sometimes important ones."
+    },
+    {
+      "name": "Alter Ego",
+      "kind": "ordinary",
+      "summary": "A mundane alter ego built on 50 Hero Points that earns 1 per 5 you earn."
+    },
+    {
+      "name": "Amnesia",
+      "kind": "special",
+      "summary": "No memory of your past; counts as both Plot Hook and Condition (+1 Resolve per issue)."
+    },
+    {
+      "name": "Aversion/Fear",
+      "kind": "ordinary",
+      "summary": "You avoid something and react badly when you can't."
+    },
+    {
+      "name": "Beast",
+      "kind": "ordinary",
+      "summary": "Animal-level intellect that struggles with complex reasoning."
+    },
+    {
+      "name": "Blind/Deaf",
+      "kind": "condition",
+      "summary": "Fully blind or deaf; may need a compensating Power."
+    },
+    {
+      "name": "Broke",
+      "kind": "ordinary",
+      "summary": "No money, job or possibly home."
+    },
+    {
+      "name": "Clumsy",
+      "kind": "ordinary",
+      "summary": "You tend to break things."
+    },
+    {
+      "name": "Code",
+      "kind": "ordinary",
+      "summary": "A strict code of conduct beyond ordinary heroism."
+    },
+    {
+      "name": "Color Blind",
+      "kind": "ordinary",
+      "summary": "You can't see or distinguish certain colors."
+    },
+    {
+      "name": "Compulsion/Severe Compulsion",
+      "kind": "special",
+      "summary": "An urge you struggle to resist; a truly irresistible one is a Severe Compulsion (Condition)."
+    },
+    {
+      "name": "Creepy",
+      "kind": "ordinary",
+      "summary": "You unsettle children, psychics and animals."
+    },
+    {
+      "name": "Curse",
+      "kind": "ordinary",
+      "summary": "A supernatural burden of your design, with GM approval."
+    },
+    {
+      "name": "Decorum",
+      "kind": "ordinary",
+      "summary": "You insist on proper manners and social rules."
+    },
+    {
+      "name": "Disabled",
+      "kind": "condition",
+      "summary": "A physical disability; may need a compensating Power."
+    },
+    {
+      "name": "Emotionless",
+      "kind": "ordinary",
+      "summary": "You lack empathy and come across coldly."
+    },
+    {
+      "name": "Enemy",
+      "kind": "plot_hook",
+      "summary": "Someone or some group wants you ruined."
+    },
+    {
+      "name": "Finite Power",
+      "kind": "ordinary",
+      "summary": "A Power relies on a resource that can run out."
+    },
+    {
+      "name": "Flashbacks/Guilt",
+      "kind": "ordinary",
+      "summary": "Triggers leave you helpless for a page or at -2d for 3 pages."
+    },
+    {
+      "name": "Frenzy",
+      "kind": "ordinary",
+      "summary": "You rush in recklessly and may go berserk."
+    },
+    {
+      "name": "Frightening",
+      "kind": "ordinary",
+      "summary": "Your appearance terrifies most people."
+    },
+    {
+      "name": "Heavy/Very Heavy",
+      "kind": "special",
+      "summary": "Weight 5d-6d (Heavy, ordinary) or 7d+ (Very Heavy, Condition)."
+    },
+    {
+      "name": "Hidden Agenda",
+      "kind": "ordinary",
+      "summary": "Secret goals you won't share with allies."
+    },
+    {
+      "name": "Illiterate",
+      "kind": "ordinary",
+      "summary": "You can't read or write a known Earth language."
+    },
+    {
+      "name": "Impaired Sense",
+      "kind": "ordinary",
+      "summary": "Poor hearing, smell or vision; you may choose to fail Perception rolls."
+    },
+    {
+      "name": "Insane",
+      "kind": "ordinary",
+      "summary": "Persistent delusions, breaks with reality or psychotic episodes."
+    },
+    {
+      "name": "Light Sensitive",
+      "kind": "ordinary",
+      "summary": "Bright light disorients or incapacitates you."
+    },
+    {
+      "name": "Mute",
+      "kind": "ordinary",
+      "summary": "Your Hero can't, won't or can't be understood when speaking."
+    },
+    {
+      "name": "Night Blind",
+      "kind": "ordinary",
+      "summary": "Dim light is nearly darkness to you."
+    },
+    {
+      "name": "Nocturnal",
+      "kind": "ordinary",
+      "summary": "Sluggish by day or prone to dozing off."
+    },
+    {
+      "name": "Notoriety",
+      "kind": "ordinary",
+      "summary": "A bad reputation makes people react poorly."
+    },
+    {
+      "name": "Obligation",
+      "kind": "plot_hook",
+      "summary": "A duty such as school or a job constrains you."
+    },
+    {
+      "name": "Outsider",
+      "kind": "ordinary",
+      "summary": "From another time, world or dimension and unfamiliar with local norms."
+    },
+    {
+      "name": "Power Limits",
+      "kind": "ordinary",
+      "summary": "A self-controlled Power limitation that earns Resolve instead of reducing cost."
+    },
+    {
+      "name": "Quirk",
+      "kind": "ordinary",
+      "summary": "An unfortunate personality trait that flares at bad times."
+    },
+    {
+      "name": "Reaction/Severe Reaction",
+      "kind": "special",
+      "summary": "Adverse reactions to a trigger; an irresistible one is a Severe Reaction (Condition)."
+    },
+    {
+      "name": "Relationship",
+      "kind": "plot_hook",
+      "summary": "Friends, family or pets who need your attention and rescue."
+    },
+    {
+      "name": "Repair",
+      "kind": "condition",
+      "summary": "You don't heal naturally and must be repaired."
+    },
+    {
+      "name": "Requirement/Severe Requirement",
+      "kind": "special",
+      "summary": "Something you must periodically satisfy; a desperate, immediate need is a Severe Requirement (Condition)."
+    },
+    {
+      "name": "Restriction",
+      "kind": "ordinary",
+      "summary": "Fewer legal rights than an average person."
+    },
+    {
+      "name": "Secret",
+      "kind": "ordinary",
+      "summary": "A secret you must protect at all costs."
+    },
+    {
+      "name": "Secret Identity",
+      "kind": "ordinary",
+      "summary": "The classic superhero version of Secret."
+    },
+    {
+      "name": "Slow",
+      "kind": "ordinary",
+      "summary": "You move slowly; you may choose to fail speed-related Agility rolls."
+    },
+    {
+      "name": "Unlucky/Jinx",
+      "kind": "condition",
+      "summary": "Once per issue the GM can inflict a free misfortune on you (Unlucky) or a nearby ally (Jinx)."
+    },
+    {
+      "name": "Unusual Looks",
+      "kind": "ordinary",
+      "summary": "An off-putting appearance; redundant with Frightening."
+    },
+    {
+      "name": "Unusual Shape",
+      "kind": "ordinary",
+      "summary": "A non-human body shape with practical drawbacks."
+    },
+    {
+      "name": "Vulnerability",
+      "kind": "condition",
+      "summary": "Defenses are halved against one attack, effect or weapon."
+    },
+    {
+      "name": "Wanted",
+      "kind": "plot_hook",
+      "summary": "Authorities are actively hunting you."
+    }
+  ]
+}

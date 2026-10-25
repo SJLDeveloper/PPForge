@@ -1,0 +1,26 @@
+[package]
+name = "pp_forge"
+version = "0.1.0"
+edition = "2024"
+description = "Character builder and manager for Prowlers & Paragons Ultimate Edition (core rules or core + Combined Updates errata)"
+readme = "README.md"
+rust-version = "1.95"
+
+[dependencies]
+directories = "6.0.0"
+eframe = { version = "0.37.0", features = ["glow"] }
+egui = "0.37"
+printpdf = "0.7"
+rfd = "0.17.2"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = true
+
+[package.metadata.bundle]
+name = "PP Forge"
+identifier = "org.ppforge.app"

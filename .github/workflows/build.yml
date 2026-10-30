@@ -76,10 +76,28 @@ jobs:
             dist/${{ matrix.package }}.tar.gz
           if-no-files-found: error
 
+  sbom:
+    # Fails if sbom/ or docs/SBOM.md no longer match Cargo.lock and the embedded data.
+    # Fix locally with `python3 tools/sbom.py` and commit the result.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Install cargo-cyclonedx
+        run: cargo install cargo-cyclonedx --version 0.5.9 --locked
+      - name: Check SBOM is up to date
+        run: python3 tools/sbom.py --check
+      - uses: actions/upload-artifact@v7
+        with:
+          name: sbom
+          path: sbom/*.cdx.json
+          if-no-files-found: error
+
   release:
-    # Only for version tags, and only once every platform built and passed its tests.
+    # Only for version tags, and only once every platform built, passed its tests, and the SBOM is current.
     if: startsWith(github.ref, 'refs/tags/v')
-    needs: build
+    needs: [build, sbom]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -105,3 +123,5 @@ jobs:
             - **Linux (x86_64):** `pp_forge-linux-x86_64.tar.gz` → run `./pp_forge`.
 
             Each package includes the README and a sample character (`Hard Case.ppchar`).
+
+            The `pp_forge-<platform>.cdx.json` files are the Software Bill of Materials (CycloneDX 1.5) for each package.

@@ -67,12 +67,22 @@ Once every platform builds and passes its tests, the workflow creates a GitHub R
 - `pp_forge-macos-apple-silicon.tar.gz`
 - `pp_forge-macos-intel.tar.gz`
 
-Each package contains the app, this README and the sample character. Bump `version` in `Cargo.toml` and use a new tag for each release.
+Each package contains the app, this README and the sample character. Each Release also carries the four SBOM files (`pp_forge-<platform>.cdx.json`). Bump `version` in `Cargo.toml` and use a new tag for each release.
 
 ### Where files go
 
 - Character library: `Documents/PP Forge/` by default (View ▸ Change library folder).
 - Settings: the OS config directory (`%APPDATA%\PPForge\PP Forge\config` on Windows, `~/Library/Application Support/org.PPForge.PP-Forge` on macOS, `~/.config/ppforge` on Linux).
+
+## Documentation
+
+| Document | What's in it |
+|---|---|
+| [docs/DESIGN.md](docs/DESIGN.md) | Architecture, modules, save format, rules engine, UI, PDF, build/CI, testing, open items |
+| [docs/RULES_DATA.md](docs/RULES_DATA.md) | Sources of the rules data, how it was extracted and verified, how to change it |
+| [docs/DECISIONS.md](docs/DECISIONS.md) | Log of significant design decisions and their trade-offs |
+| [docs/SBOM.md](docs/SBOM.md) | Software Bill of Materials summary: dependencies, licenses, embedded data (generated) |
+| [tools/SCHEMA.md](tools/SCHEMA.md) | Rules data JSON format |
 
 ## Project layout
 
@@ -94,6 +104,10 @@ data/
 tools/
   build_core_rules.py / build_errata_rules.py   regenerate the data files (run from the repo root)
   SCHEMA.md                                     data format reference
+  sbom.py                                       generate/check the SBOM (needs cargo-cyclonedx)
+docs/          design, rules-data provenance, decisions, SBOM summary
+sbom/          CycloneDX SBOM per release platform (generated; checked in CI)
+.github/       CI workflow and pull request checklist
 ```
 
 Run `cargo test` to check the engine. The tests include the core book's Chapter 2 walkthrough (a Low Level Hero that totals exactly 100 Hero Points) and a Psi Lance-style sample whose Health, Edge and Resolve should match the book.
@@ -111,4 +125,4 @@ Where the books are ambiguous, the app makes the following calls. Each one can b
 
 ## Data and copyright
 
-The JSON data holds game mechanics: names, ranges, ranks, costs and modifier values. The descriptions are short paraphrases, not rulebook text. You still need the books to play. This is an unofficial fan tool.
+The JSON data holds game mechanics: names, ranges, ranks, costs and modifier values. The descriptions are short paraphrases, not rulebook text. You still need the books to play. This is an unofficial fan tool. See [docs/RULES_DATA.md](docs/RULES_DATA.md) for the sources and how the data was produced.

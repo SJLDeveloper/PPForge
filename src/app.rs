@@ -309,8 +309,12 @@ impl App {
     fn close_doc(&mut self, idx: usize) {
         if idx < self.docs.len() {
             self.docs.remove(idx);
-            if self.active >= self.docs.len() && !self.docs.is_empty() {
-                self.active = self.docs.len() - 1;
+            // Keep the same character selected when one above it in the list is closed.
+            if idx < self.active {
+                self.active -= 1;
+            }
+            if self.active >= self.docs.len() {
+                self.active = self.docs.len().saturating_sub(1);
             }
         }
     }
@@ -510,7 +514,12 @@ impl App {
                 let selected = i == self.active;
                 let fill = if selected { pal.card_alt } else { pal.card };
                 let stroke = if selected { egui::Stroke::new(1.5, theme::ACCENT) } else { egui::Stroke::new(1.0, pal.border) };
-                let resp = egui::Frame::new()
+                // The card's click area is registered before its contents (UiBuilder::sense), so
+                // the ✕ button inside it gets its own clicks instead of the card swallowing them.
+                let card = ui.scope_builder(egui::UiBuilder::new().sense(egui::Sense::click()), |ui| {
+                    // Text inside the card shouldn't be selectable, or it would catch clicks meant for the card.
+                    ui.style_mut().interaction.selectable_labels = false;
+                    egui::Frame::new()
                     .fill(fill)
                     .stroke(stroke)
                     .corner_radius(8)
@@ -535,9 +544,9 @@ impl App {
                                 ui.label(RichText::new(format!("{} HP left", rem)).small().color(c));
                             }
                         });
-                    })
-                    .response;
-                if resp.interact(egui::Sense::click()).clicked() {
+                    });
+                });
+                if card.response.clicked() && close != Some(i) {
                     select = Some(i);
                 }
                 ui.add_space(4.0);

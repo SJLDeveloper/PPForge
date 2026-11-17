@@ -210,36 +210,101 @@ fn overview(ui: &mut Ui, doc: &mut Doc, pal: &Palette, dark: bool) {
         theme::section_title(ui, "At a Glance");
         let c = &doc.ch;
         let s = &doc.summary;
-        ui.horizontal_wrapped(|ui| {
-            for (i, a) in ABILITIES.iter().enumerate() {
-                egui::Frame::new().fill(pal.card_alt).corner_radius(6).inner_margin(egui::Margin::symmetric(10, 4)).show(ui, |ui| {
-                    ui.label(RichText::new(format!("{a} ")).color(pal.muted));
-                    ui.label(RichText::new(format!("{}d", c.abilities[i].rank)).strong());
-                });
-            }
-        });
-        ui.add_space(6.0);
+        let abilities: Vec<GlanceItem> = ABILITIES
+            .iter()
+            .enumerate()
+            .map(|(i, a)| GlanceItem {
+                name: a.to_string(),
+                value: format!("{}d", c.abilities[i].rank),
+                color: pal.text,
+                hover: String::new(),
+            })
+            .collect();
+        glance_grid(ui, "glance_abilities", &abilities, pal);
+        ui.add_space(10.0);
         let rules = rules::rules(c.ruleset);
         if c.powers.is_empty() {
             hint(ui, pal, "No Powers yet — add some on the Powers tab.");
         }
-        ui.horizontal_wrapped(|ui| {
-            for (p, pc) in c.powers.iter().zip(&s.power_costs) {
-                let label = match pc.rank {
-                    Some(r) => format!("{} {}d", engine::power_label(p), r),
-                    None => engine::power_label(p),
-                };
-                let color = if pc.unknown { theme::BAD } else { pal.text };
-                let def = engine::power_def(rules, p);
-                let r = egui::Frame::new().fill(pal.card_alt).corner_radius(6).inner_margin(egui::Margin::symmetric(10, 4)).show(ui, |ui| {
-                    ui.label(RichText::new(label).color(color));
-                });
-                if let Some(d) = def {
-                    r.response.on_hover_text(&d.summary);
-                }
-            }
-        });
+        let powers: Vec<GlanceItem> = c
+            .powers
+            .iter()
+            .zip(&s.power_costs)
+            .map(|(p, pc)| GlanceItem {
+                name: engine::power_label(p),
+                value: pc.rank.map(|r| format!("{r}d")).unwrap_or_default(),
+                color: if pc.unknown { theme::BAD } else { pal.text },
+                hover: engine::power_def(rules, p).map(|d| d.summary.clone()).unwrap_or_default(),
+            })
+            .collect();
+        glance_grid(ui, "glance_powers", &powers, pal);
     });
+}
+
+/// One cell of the At a Glance grid.
+struct GlanceItem {
+    name: String,
+    /// Shown right-aligned at the top of the cell (e.g. "10d"); may be empty.
+    value: String,
+    color: egui::Color32,
+    hover: String,
+}
+
+/// Lay items out in a fixed grid: four equal columns (two on narrow windows). Long names wrap
+/// inside their own cell, and every cell in a row is drawn at the height of the tallest one.
+fn glance_grid(ui: &mut Ui, id: &str, items: &[GlanceItem], pal: &Palette) {
+    if items.is_empty() {
+        return;
+    }
+    let gap = 8.0;
+    let pad = egui::vec2(10.0, 6.0);
+    // Measure the width that is actually visible: on narrow windows the tab can be laid out wider
+    // than the viewport, and columns past the visible edge would be hidden.
+    let avail = ui.available_width().min(ui.clip_rect().right() - ui.cursor().left() - 4.0).max(160.0);
+    let cols = if avail >= 640.0 {
+        4
+    } else if avail >= 470.0 {
+        3
+    } else {
+        2
+    };
+    let col_w = ((avail - gap * (cols as f32 - 1.0)) / cols as f32).floor();
+    let name_font = egui::FontId::proportional(14.0);
+    let value_font = egui::FontId::proportional(14.0);
+    for (row_i, row) in items.chunks(cols).enumerate() {
+        let top = ui.cursor().top();
+        let left = ui.cursor().left();
+        // Reserve a background slot per cell; it's filled in once the row height is known.
+        let bg: Vec<egui::layers::ShapeIdx> = row.iter().map(|_| ui.painter().add(egui::Shape::Noop)).collect();
+        let mut heights = Vec::with_capacity(row.len());
+        for (k, item) in row.iter().enumerate() {
+            let x = left + k as f32 * (col_w + gap);
+            let value = ui.painter().layout_no_wrap(item.value.clone(), value_font.clone(), item.color);
+            let value_w = if item.value.is_empty() { 0.0 } else { value.size().x + 8.0 };
+            let name_w = (col_w - 2.0 * pad.x - value_w).max(20.0);
+            let name = ui.painter().layout(item.name.clone(), name_font.clone(), item.color, name_w);
+            let h = name.size().y.max(value.size().y) + 2.0 * pad.y;
+            let origin = egui::pos2(x + pad.x, top + pad.y);
+            ui.painter().galley(origin, name, item.color);
+            if !item.value.is_empty() {
+                let vx = x + col_w - pad.x - value.size().x;
+                ui.painter().galley(egui::pos2(vx, top + pad.y), value, item.color);
+            }
+            heights.push(h);
+        }
+        let row_h = heights.iter().cloned().fold(0.0, f32::max);
+        for (k, item) in row.iter().enumerate() {
+            let x = left + k as f32 * (col_w + gap);
+            let rect = egui::Rect::from_min_size(egui::pos2(x, top), egui::vec2(col_w, row_h));
+            ui.painter().set(bg[k], egui::Shape::rect_filled(rect, 6.0, pal.card_alt));
+            if !item.hover.is_empty() {
+                ui.interact(rect, ui.scope_id().with((id, row_i, k)), egui::Sense::hover()).on_hover_text(&item.hover);
+            }
+        }
+        let row_rect = egui::Rect::from_min_size(egui::pos2(left, top), egui::vec2(avail, row_h));
+        ui.advance_cursor_after_rect(row_rect);
+        ui.add_space(gap - ui.spacing().item_spacing.y);
+    }
 }
 
 // ---------------------------------------------------------------- Traits

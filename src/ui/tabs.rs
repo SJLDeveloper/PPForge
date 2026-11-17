@@ -608,9 +608,8 @@ fn powers(ui: &mut Ui, doc: &mut Doc, st: &mut UiState, pal: &Palette, dark: boo
         .chain(doc.ch.powers.iter().map(|p| p.def.clone()))
         .collect();
     let power_level = doc.ch.power_level;
-    for i in 0..n {
+    for (i, p) in doc.ch.powers.iter_mut().enumerate() {
         let pc = costs.get(i).cloned().unwrap_or_default();
-        let p = &mut doc.ch.powers[i];
         let uid = p.uid;
         let open = st.expanded.contains(&uid);
         let def_owned: Option<PowerDef> = engine::power_def(rules, p).cloned();

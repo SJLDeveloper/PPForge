@@ -57,17 +57,25 @@ The result is `target/x86_64-pc-windows-gnu/release/pp_forge.exe`. It's a single
 Every push builds all four platforms. Each run's binaries are kept for 90 days on its Actions page, and you have to be signed in to GitHub to download them. To publish a permanent download page, push a version tag:
 
 ```sh
-git tag v0.1.0
-git push origin v0.1.0
+git tag v0.1.3
+git push origin v0.1.3
 ```
 
-Once every platform builds and passes its tests, the workflow creates a GitHub Release named "PP Forge v0.1.0" with:
+The tag must match `version` in `Cargo.toml` (tag `v0.1.3` ↔ `version = "0.1.3"`), or the release job refuses to publish. Once every platform builds and passes its tests, the workflow creates a GitHub Release named "PP Forge v0.1.3" with:
 - `pp_forge-windows-x86_64.zip`
 - `pp_forge-linux-x86_64.tar.gz`
 - `pp_forge-macos-apple-silicon.tar.gz`
 - `pp_forge-macos-intel.tar.gz`
 
-Each package contains the app, this README and the sample character. Each Release also carries the four SBOM files (`pp_forge-<platform>.cdx.json`). Bump `version` in `Cargo.toml` and use a new tag for each release.
+Each package contains the app, this README and the sample character. Each Release also carries the four SBOM files (`pp_forge-<platform>.cdx.json`). See *Versioning* below for when the version changes.
+
+### Versioning
+
+PP Forge uses [semantic versioning](https://semver.org/). The version lives in `Cargo.toml`, is shown in Help ▸ About, and appears in the SBOM.
+
+- Every pull request that changes what ships (the app, the rules data, the build) bumps the version in that same PR: patch (`0.1.3 → 0.1.4`) for fixes and small adjustments, minor (`0.1.x → 0.2.0`) for new features or rules-data changes. Pull requests that only touch docs, CI or tools don't bump it.
+- The PR also adds its entry to [CHANGELOG.md](CHANGELOG.md) and regenerates the SBOM (`python3 tools/sbom.py`), since the SBOM records the version.
+- To release, tag the merged commit with the matching `v` version.
 
 ### Where files go
 
@@ -81,6 +89,7 @@ Each package contains the app, this README and the sample character. Each Releas
 | [docs/DESIGN.md](docs/DESIGN.md) | Architecture, modules, save format, rules engine, UI, PDF, build/CI, testing, open items |
 | [docs/RULES_DATA.md](docs/RULES_DATA.md) | Sources of the rules data, how it was extracted and verified, how to change it |
 | [docs/DECISIONS.md](docs/DECISIONS.md) | Log of significant design decisions and their trade-offs |
+| [CHANGELOG.md](CHANGELOG.md) | What changed in each version |
 | [docs/SBOM.md](docs/SBOM.md) | Software Bill of Materials summary: dependencies, licenses, embedded data (generated) |
 | [tools/SCHEMA.md](tools/SCHEMA.md) | Rules data JSON format |
 

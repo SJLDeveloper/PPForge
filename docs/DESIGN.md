@@ -169,9 +169,9 @@ Page 1, top to bottom: header band (name, real name, type, power level, Role, mo
 - **CI** (`.github/workflows/build.yml`) runs on every push and pull request:
   - `build`: four runners (`ubuntu-latest`, `windows-latest`, `macos-latest` for Apple Silicon, `macos-15-intel`). Each runs tests, clippy with `-D warnings` and a release build, then packages the binary with the README and the sample character (`.zip` for Windows, `.tar.gz` elsewhere) as an artifact.
   - `sbom`: regenerates the SBOM and fails if the committed copy is out of date.
-  - `release` (only for `v*` tags, after `build` and `sbom` both pass): publishes a GitHub Release with the four packages and four SBOMs.
+  - `release` (only for `v*` tags, after `build` and `sbom` both pass): checks that the tag equals `v` + the `Cargo.toml` version, then publishes a GitHub Release with the four packages and four SBOMs.
 - **Cross-compiling Windows from Linux:** the `x86_64-pc-windows-gnu` target with MinGW-w64 (see the README).
-- **Repository workflow:** changes go through pull requests, so CI runs before anything is merged into `main`. Commits use the owner's GitHub noreply address, because the real address is private.
+- **Repository workflow:** changes go through pull requests, so CI runs before anything is merged into `main`. Each pull request that changes what ships bumps the version and updates `CHANGELOG.md` (decision D13). Commits use the owner's GitHub noreply address, because the real address is private.
 
 ## 8. Testing
 

@@ -58,3 +58,8 @@ A short log of significant choices: what was decided, why, and what was traded a
 ### D12. Changes go through pull requests; commits use the noreply identity
 **Decision:** work happens on branches and merges into `main` through pull requests. Commits are authored as `SJLDeveloper <66124490+SJLDeveloper@users.noreply.github.com>`.
 **Why:** CI runs on every pull request before merging. GitHub rejects pushes that would publish the owner's private email address (GH007).
+
+### D13. Semantic versioning, bumped in the pull request that makes the change
+**Decision:** `Cargo.toml` holds the one version number. Every pull request that changes what ships bumps it (patch for fixes, minor for features or rules-data changes) and adds a `CHANGELOG.md` entry. Release tags must equal `v` + that version, and the release job checks this.
+**Why:** tags v0.1.1 to v0.1.2 shipped with the app still reporting 0.1.0, so neither About nor the SBOM said which build someone was running. Bumping in the PR keeps the version, changelog and SBOM in one reviewed diff.
+**Trade-offs:** two open pull requests can both claim the same next version. Whichever merges second takes the next number when it's rebased.
